@@ -1,0 +1,1041 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#0c100f;--panel:#141a17;--panel2:#19211d;--line:#29332d;--text:#f0f5f1;--muted:#9aa99f;--green:#b9f56a;--green-dark:#20351a;--orange:#ffb36b;--radius:20px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{height:72px;padding:0 max(22px,calc((100vw - 1120px)/2));border-bottom:1px solid #202923;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:18px}.brand-mark{display:grid;place-items:center;background:var(--green);color:#14200f;width:30px;height:30px;border-radius:10px;font-weight:700}.local-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;background:var(--green);border-radius:50%}.container{max-width:1120px;margin:auto;padding:38px 22px 24px}.hero{min-height:240px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;padding:20px 10px 30px}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:700;color:var(--green);margin:0 0 10px}.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,5vw,62px);line-height:1.02;letter-spacing:-2.5px;margin:0}.hero h1 span{color:var(--green)}.hero-copy{color:var(--muted);max-width:410px;margin:18px 0 0}.hero-art{width:210px;height:210px;position:relative;margin-right:80px;flex-shrink:0}.art-ring{position:absolute;border:1px solid #42583a;border-radius:50%;transform:rotate(-25deg)}.ring-one{inset:10px 0 0 15px}.ring-two{inset:30px 20px 10px 0;border-color:#7aa54c}.art-number{position:absolute;inset:0;display:grid;place-content:center;font-family:'Space Grotesk',sans-serif;font-size:46px;color:var(--green);font-weight:700}.art-number span{font-size:10px;letter-spacing:2px;color:var(--muted);text-align:center}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 20px}.stat-card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}.stat-card{padding:20px 22px;display:flex;flex-direction:column;gap:4px}.stat-label,.stat-note{font-size:12px;color:var(--muted)}.stat-card strong{font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.2;margin-top:5px}.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{padding:24px;margin-bottom:16px}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.section-heading h2{font-family:'Space Grotesk',sans-serif;font-size:22px;margin:0;letter-spacing:-.5px}.section-heading .eyebrow{margin-bottom:5px}.pill{font-size:11px;color:var(--green);background:#24351f;border-radius:20px;padding:6px 10px;white-space:nowrap}label{display:block;color:#d7e0d9;font-size:12px;font-weight:600;margin:13px 0 7px}.optional{color:var(--muted);font-weight:400}input,select,textarea{width:100%;background:#0d120f;color:var(--text);border:1px solid #303c34;border-radius:10px;padding:11px 12px;outline:none;min-width:0}input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 2px #b9f56a1c}textarea{resize:vertical}.form-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.button{border:0;border-radius:10px;padding:11px 15px;font-weight:700;font-size:12px}.button-primary{background:var(--green);color:#14200f;width:100%;margin-top:17px}.button-primary:hover{background:#c9ff86}.button-secondary{background:#202a23;color:var(--text);border:1px solid #344238}.form-message{font-size:12px;color:var(--green);min-height:17px;margin:8px 0 0}.chart-wrap{min-height:220px;margin-top:18px;display:flex;align-items:center;justify-content:center}.empty-state{text-align:center;max-width:240px;color:var(--muted)}.empty-icon{margin:0 auto 12px;width:42px;height:42px;border:1px solid #3d503a;border-radius:14px;display:grid;place-items:center;color:var(--green);font-size:24px}.empty-state strong{color:var(--text);font-size:14px}.empty-state p{font-size:12px}.chart-footnote{font-size:10px;color:var(--muted);margin:8px 0 0}.chart{width:100%;height:220px;overflow:visible}.history-list{display:flex;flex-direction:column;gap:10px}.history-item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#101612;border:1px solid #252f28;border-radius:12px;padding:13px 14px}.history-title{font-weight:700;font-size:13px}.history-meta{font-size:11px;color:var(--muted);margin-top:3px}.history-notes{font-size:11px;color:#b9c7bd;margin-top:5px;overflow-wrap:anywhere}.history-right{text-align:right}.history-weight{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700}.history-weight small{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--muted);font-weight:400}.delete-btn{background:transparent;border:0;color:#a2b0a5;font-size:11px;text-decoration:underline;margin-top:5px}.empty-history{padding:26px;text-align:center;color:var(--muted);font-size:13px;background:#101612;border:1px dashed #344238;border-radius:12px}.privacy-note{display:flex;gap:12px;align-items:flex-start;background:#151c17;border:1px solid #2a392c;border-radius:14px;padding:16px;margin:4px 0 24px}.privacy-icon{color:var(--green);font-size:20px}.privacy-note p{font-size:11px;color:var(--muted);margin:0}.privacy-note strong{color:var(--text)}footer{text-align:center;color:#657369;font-size:10px;padding:4px 0 14px}
+@media(max-width:760px){.container{padding:24px 14px}.hero{min-height:205px;padding:12px 3px 24px}.hero-art{width:120px;height:120px;margin-right:5px;opacity:.7}.art-number{font-size:30px}.hero h1{font-size:42px}.hero-copy{font-size:13px;max-width:300px}.content-grid{grid-template-columns:1fr}.stats-grid{gap:8px}.stat-card{padding:14px 12px}.stat-card strong{font-size:26px}.stat-label,.stat-note{font-size:10px}.panel{padding:18px}.topbar{padding:0 14px;height:62px}.local-label{font-size:10px}}@media(max-width:400px){.hero-art{display:none}.form-row{gap:7px}.form-row input{padding:10px 7px}.section-heading h2{font-size:20px}}
+
+.founder-card{position:relative;display:flex;align-items:center;gap:18px;overflow:hidden;background:linear-gradient(115deg,#141a17 0%,#111a1c 100%);border:1px solid #293a3c;border-radius:var(--radius);padding:22px;margin:4px 0 18px}.founder-photo-wrap{width:76px;height:76px;flex:0 0 76px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#b9f56a,#49d7df);position:relative;z-index:1}.founder-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 38%;border-radius:50%;border:3px solid #141a17}.founder-details{position:relative;z-index:1;min-width:0}.founder-details .eyebrow{margin-bottom:4px}.founder-details h2{font-family:'Space Grotesk',sans-serif;font-size:22px;line-height:1.2;margin:0}.founder-tagline{font-size:12px;color:var(--muted);margin:5px 0 9px}.founder-email{display:inline-flex;align-items:center;gap:7px;color:#d7f5b3;text-decoration:none;font-size:12px;overflow-wrap:anywhere}.founder-email:hover{text-decoration:underline}.founder-mark{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:'Space Grotesk',sans-serif;font-size:116px;font-weight:700;line-height:1;color:#b9f56a;opacity:.045;pointer-events:none}@media(max-width:560px){.founder-card{align-items:flex-start;gap:13px;padding:17px}.founder-photo-wrap{width:62px;height:62px;flex-basis:62px}.founder-details h2{font-size:20px}.founder-email{font-size:11px}.founder-mark{right:10px;font-size:90px}}
+/* ProgressLab XP and Level Card */
+.level-card {
+  margin: 0 0 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, #151c18, #101713);
+  border: 1px solid #304334;
+  border-radius: 22px;
+}
+
+.level-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.level-card h2 {
+  margin: 8px 0;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+#player-xp,
+#level-next {
+  color: #9eada2;
+  font-size: 14px;
+}
+
+.level-badge {
+  display: grid;
+  place-items: center;
+  min-width: 72px;
+  height: 72px;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid #b9f56a;
+  color: #b9f56a;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.level-track {
+  height: 10px;
+  overflow: hidden;
+  background: #27332a;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.level-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #79c944, #b9f56a);
+  border-radius: inherit;
+  transition: width 300ms ease;
+}
+
+#level-next {
+  margin: 0;
+}
+
+/* ProgressLab achievement cards */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.achievement-card {
+  padding: 22px;
+  border: 1px solid #29352d;
+  border-radius: 18px;
+  background: #101711;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-3px);
+  border-color: #789b4d;
+}
+
+.achievement-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.achievement-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.achievement-card p {
+  margin: 0 0 18px;
+  color: #9ba99e;
+  font-size: 14px;
+}
+
+.achievement-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #252b26;
+  color: #aab3ac;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.achievement-card.unlocked {
+  border-color: #b9f56a;
+  background: linear-gradient(145deg, #172218, #101711);
+}
+
+.achievement-card.unlocked .achievement-status {
+  background: #b9f56a;
+  color: #101711;
+}
+
+/* Sunday Showdown — ProgressLab styling */
+.showdown-panel {
+  margin-top: 24px;
+}
+
+.showdown-card {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #303c31;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #171e18, #101511);
+}
+
+.showdown-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  border: 1px solid #405331;
+  border-radius: 14px;
+  background: #202e1b;
+  font-size: 24px;
+}
+
+.challenge-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0;
+  padding: 14px 16px;
+  border: 1px solid #2b372e;
+  border-radius: 12px;
+  background: #0d120e;
+}
+
+.challenge-task strong {
+  color: #b9f56a;
+  text-align: right;
+}
+
+.challenge-note {
+  margin: 20px 0;
+  color: #a4b0a6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.challenge-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 14px;
+  color: #e7eee8;
+  cursor: pointer;
+}
+
+.challenge-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: #b9f56a;
+}
+
+#showdown-claim {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #b9f56a;
+  border-radius: 12px;
+  background: #b9f56a;
+  color: #10150d;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+#showdown-claim:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+#showdown-claim:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#showdown-message {
+  margin: 14px 0 0;
+  color: #a4b0a6;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .showdown-card {
+    padding: 18px;
+  }
+
+  .challenge-task {
+    padding: 12px;
+  }
+}
+
+/* Progress photo gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 220px));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.photo-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #2b3a30;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.photo-info {
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.photo-card .delete-btn {
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-card img {
+    height: 160px;
+  }
+}
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.photo-lightbox img {
+  display: block;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.photo-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ProgressLab premium workout styling */
+#generated-exercises {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+#generated-exercises .history-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid rgba(72, 205, 255, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(24, 35, 49, 0.98),
+    rgba(20, 22, 38, 0.98)
+  );
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+#generated-exercises .history-item:hover {
+  border-color: rgba(72, 205, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+#generated-exercises .history-item strong {
+  color: #f4f7ff;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+#generated-exercises .history-item p {
+  margin: 8px 0 0;
+  color: #aab8ce;
+  font-size: 13px;
+}
+
+/* Warm-up guidance */
+#generated-exercises .workout-warmup {
+  grid-column: 1 / -1;
+  padding: 12px 14px;
+  border: 1px solid rgba(168, 125, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(105, 65, 180, 0.12);
+  color: #c9b8ff;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Keep cards comfortable on phones */
+@media (max-width: 480px) {
+  #generated-exercises .history-item {
+    padding: 13px;
+  }
+}
+
+
+
+/* RGB gaming-style workout cards */
+#generated-exercises .history-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#101411, #101411) padding-box,
+    linear-gradient(120deg, #ff304f, #39ff88, #368bff, #b936ff, #ff304f) border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: rgb-border-glow 6s linear infinite;
+  box-shadow:
+    0 0 8px rgba(57, 255, 136, 0.08),
+    0 0 14px rgba(54, 139, 255, 0.08);
+}
+
+#generated-exercises .history-item:hover {
+  box-shadow:
+    0 0 12px rgba(57, 255, 136, 0.18),
+    0 0 20px rgba(54, 139, 255, 0.18);
+}
+
+@keyframes rgb-border-glow {
+  0% { background-position: 0 0, 0% 50%; }
+  50% { background-position: 0 0, 100% 50%; }
+  100% { background-position: 0 0, 0% 50%; }
+}
+
+#generated-exercises .history-item strong {
+  color: #ffffff;
+}
+
+#generated-exercises .history-item p {
+  color: #c5cbd4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #generated-exercises .history-item {
+    animation: none;
+  }
+}
+
+
+/* ProgressLab — Premium Neon Upgrade */
+:root {
+  --pl-bg: #080b10;
+  --pl-card: #101620;
+  --pl-border: rgba(48, 219, 255, 0.22);
+  --pl-cyan: #30e7ff;
+  --pl-purple: #a66bff;
+  --pl-text: #f4f7ff;
+  --pl-muted: #a1aec2;
+}
+
+html {
+  background: var(--pl-bg);
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(48, 219, 255, 0.09), transparent 35%),
+    radial-gradient(ellipse at 90% 20%, rgba(166, 107, 255, 0.09), transparent 32%),
+    var(--pl-bg);
+  color: var(--pl-text);
+}
+
+.panel,
+.generator-panel,
+.active-workout-panel {
+  background: linear-gradient(145deg, #111824, #0b1018);
+  border: 1px solid var(--pl-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+h1, h2, h3 {
+  color: var(--pl-text);
+}
+
+p {
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  background: #090e16;
+  color: var(--pl-text);
+  border: 1px solid #29384b;
+  border-radius: 11px;
+  padding: 10px 12px;
+}
+
+button,
+.button {
+  background: linear-gradient(105deg, var(--pl-cyan), var(--pl-purple));
+  color: #080b10;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 750;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(48, 219, 255, 0.2);
+}
+
+.history-item {
+  border-color: rgba(48, 219, 255, 0.2);
+  border-radius: 14px;
+}
+
+#rest-timer-display {
+  color: var(--pl-cyan);
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 18px rgba(48, 219, 255, 0.25);
+}
+
+#active-workout-progress-bar {
+  background: linear-gradient(90deg, var(--pl-cyan), var(--pl-purple));
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(48, 219, 255, 0.25);
+}
+
+.eyebrow {
+  color: var(--pl-cyan);
+  letter-spacing: 0.14em;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .panel,
+  .generator-panel,
+  .active-workout-panel {
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  #rest-timer-display {
+    font-size: 2rem;
+  }
+}
+
+/* ProgressLab weekly streak calendar */
+.streak-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.streak-stat {
+  padding: 18px;
+  border: 1px solid rgba(32, 231, 255, 0.25);
+  border-radius: 16px;
+  background: rgba(32, 231, 255, 0.05);
+}
+
+.streak-stat strong,
+.streak-stat span {
+  display: block;
+}
+
+.streak-stat strong {
+  font-size: 28px;
+  color: #32e6ff;
+}
+
+.streak-stat span {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #aab6ca;
+}
+
+.streak-week-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.streak-day {
+  min-width: 0;
+  padding: 12px 2px;
+  text-align: center;
+  border: 1px solid #293448;
+  border-radius: 12px;
+  background: #101624;
+}
+
+.streak-day span {
+  display: block;
+  font-size: 11px;
+  color: #aab6ca;
+  margin-bottom: 10px;
+}
+
+.streak-day strong {
+  display: block;
+  font-size: 15px;
+  color: #f3f6ff;
+}
+
+.streak-day.is-complete {
+  border-color: #32e6ff;
+  background: rgba(32, 231, 255, 0.12);
+  box-shadow: 0 0 12px rgba(32, 231, 255, 0.12);
+}
+
+.streak-day.is-complete strong {
+  color: #32e6ff;
+}
+
+@media (max-width: 480px) {
+  .streak-week-calendar {
+    gap: 4px;
+  }
+
+  .streak-day {
+    padding: 10px 1px;
+  }
+
+  .streak-day span {
+    font-size: 10px;
+  }
+}
+
+/* ProgressLab analytics chart */
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.analytics-stat {
+  padding: 18px;
+  border: 1px solid rgba(155, 92, 255, 0.3);
+  border-radius: 16px;
+  background: rgba(155, 92, 255, 0.07);
+}
+
+.analytics-stat span,
+.analytics-stat strong,
+.analytics-stat small {
+  display: block;
+}
+
+.analytics-stat span,
+.analytics-stat small {
+  color: #aab6ca;
+}
+
+.analytics-stat strong {
+  margin: 8px 0;
+  color: #32e6ff;
+  font-size: 30px;
+}
+
+.analytics-chart {
+  height: 160px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: 10px;
+  padding: 16px 0;
+}
+
+.analytics-bar-column {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+}
+
+.analytics-bar {
+  width: 100%;
+  max-width: 42px;
+  min-height: 8px;
+  border-radius: 8px 8px 3px 3px;
+  background: #283248;
+  transition: height 0.3s ease;
+}
+
+.analytics-bar.is-complete {
+  background: linear-gradient(180deg, #32e6ff, #8957ff);
+  box-shadow: 0 0 14px rgba(50, 230, 255, 0.25);
+}
+
+.analytics-bar-column span {
+  color: #aab6ca;
+  font-size: 11px;
+}
+
+@media (max-width: 480px) {
+  .analytics-chart {
+    gap: 6px;
+  }
+
+  .analytics-stat {
+    padding: 12px;
+  }
+}
+
+/* ProgressLab authentication screen */
+.auth-screen {
+  min-height: 85vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #0b0e14;
+}
+
+.auth-screen[hidden] {
+  display: none;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  border: 1px solid rgba(75, 220, 255, 0.25);
+  border-radius: 22px;
+  background: #121722;
+  color: #f4f7fb;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.auth-card > p {
+  margin-bottom: 28px;
+  color: #9ca9bc;
+}
+
+.auth-card form {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-card label {
+  font-size: 14px;
+  color: #c4d0df;
+}
+
+.auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #30394a;
+  border-radius: 10px;
+  background: #0b1019;
+  color: #ffffff;
+}
+
+.auth-card button {
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #48d9f5;
+  color: #071018;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#auth-toggle {
+  margin-top: 16px;
+  width: 100%;
+  border: 1px solid #30394a;
+  background: transparent;
+  color: #b9eefa;
+}
+
+#auth-message {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+
+
+/* ProgressLab premium authentication layout */
+.auth-screen {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 28px;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(72, 217, 245, 0.08), transparent 45%),
+    #0b0e14;
+  color: #f4f7fb;
+}
+
+.auth-screen[hidden] {
+  display: none;
+}
+
+.auth-layout {
+  width: 100%;
+  max-width: 1100px;
+  min-height: calc(100vh - 56px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  align-items: center;
+  gap: 32px;
+}
+
+.auth-hero {
+  position: relative;
+  min-height: 600px;
+  height: min(78vh, 760px);
+  overflow: hidden;
+  border: 1px solid #252d3a;
+  border-radius: 24px;
+  background: #151922;
+}
+
+.auth-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(100%);
+}
+
+.auth-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 8, 13, 0.98),
+    rgba(5, 8, 13, 0.12) 75%
+  );
+}
+
+.auth-hero-copy {
+  position: absolute;
+  z-index: 1;
+  bottom: 32px;
+  left: 30px;
+  right: 24px;
+  color: #fff;
+}
+
+.auth-hero-copy p:first-child {
+  color: #48d9f5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.auth-hero-copy h2 {
+  margin: 14px 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+}
+
+.auth-hero-copy p:last-child {
+  color: #c4cbd5;
+  line-height: 1.6;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 32px;
+  border: 1px solid #293444;
+  border-radius: 22px;
+  background: #121722;
+  color: #f4f7fb;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  letter-spacing: -0.8px;
+}
+
+.auth-card > p {
+  margin-bottom: 28px;
+  color: #9ca9bc;
+}
+
+.auth-card form {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-card label {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #c4d0df;
+}
+
+.auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #30394a;
+  border-radius: 11px;
+  outline: none;
+  background: #0b1019;
+  color: #fff;
+}
+
+.auth-card input:focus {
+  border-color: #48d9f5;
+  box-shadow: 0 0 0 3px rgba(72, 217, 245, 0.12);
+}
+
+.auth-card button {
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 11px;
+  background: #48d9f5;
+  color: #071018;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-card button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.auth-card #auth-toggle {
+  width: 100%;
+  margin-top: 16px;
+  border: 1px solid #30394a;
+  background: transparent;
+  color: #b9eefa;
+}
+
+#auth-message {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .auth-screen {
+    padding: 16px;
+  }
+
+  .auth-layout {
+    max-width: 440px;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .auth-hero {
+    min-height: 320px;
+    height: 42vh;
+    max-height: 430px;
+  }
+
+  .auth-hero-copy {
+    bottom: 18px;
+    left: 20px;
+    right: 16px;
+  }
+
+  .auth-hero-copy h2 {
+    font-size: 34px;
+  }
+
+  .auth-card {
+    max-width: none;
+    padding: 24px;
+  }
+}
+
+
+/* ProgressLab bottom navigation */
+.bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  max-width: 620px;
+  box-sizing: border-box;
+  margin: 32px auto 0;
+  padding: 10px;
+  border: 1px solid #293444;
+  border-radius: 18px;
+  background: rgba(18, 23, 34, 0.96);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px 2px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #8996a9;
+  cursor: pointer;
+}
+
+.nav-item span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.nav-item small {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  background: rgba(72, 217, 245, 0.12);
+  color: #48d9f5;
+}
+
+.nav-item:focus-visible {
+  outline: 2px solid #48d9f5;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .bottom-nav {
+    position: fixed;
+    z-index: 1000;
+    left: 12px;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: auto;
+    margin: 0;
+    padding: 8px 5px;
+    border-radius: 18px;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-item {
+    padding: 9px 1px;
+  }
+
+  .nav-item span {
+    font-size: 20px;
+  }
+
+  .nav-item small {
+    font-size: 10px;
+  }
+
+  main.container {
+    padding-bottom: 110px;
+  }
+}
+
+
+/* Keep inactive app screens completely hidden */
+[hidden] {
+  display: none !important;
+}

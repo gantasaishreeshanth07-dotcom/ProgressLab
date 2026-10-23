@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ProgressLab — a simple workout and strength progress tracker.">
+  <title>ProgressLab — Track your progress</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ProgressLab home"><span class="brand-mark">P</span> ProgressLab</a>
+    <span class="local-label"><span class="dot"></span> Saved on this device</span>
+    <button id="logout-btn" type="button">Log out</button>
+  </header>
+<section id="auth-screen" class="auth-screen" hidden>
+<div class="auth-layout">
+  <div class="auth-hero">
+    <img src="assets/fitness-photo.jpeg" alt="ProgressLab fitness inspiration">
+    <div class="auth-hero-copy">
+      <p>YOUR TRAINING. YOUR PROGRESS.</p>
+      <h2>BUILD YOUR<br>BEST SELF.</h2>
+      <p>Every workout counts. Every rep moves you forward.</p>
+    </div>
+  </div>
+
+  <div class="auth-card">
+
+    <h1>ProgressLab</h1>
+    <p>Train. Track. Improve.</p>
+
+    <form id="auth-form">
+      <label for="auth-email">Email address</label>
+      <input id="auth-email" type="email" required autocomplete="email" placeholder="you@example.com">
+
+      <label for="auth-password">Password</label>
+      <input id="auth-password" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters">
+
+      <button id="auth-submit" type="submit">Log in</button>
+      <p id="auth-message" role="status"></p>
+    </form>
+
+    <button id="auth-toggle" type="button">Need an account? Sign up</button>
+  </div>
+  </div>
+</section>
+  <main class="container">
+    <section class="hero" id="home-screen">
+      <div>
+        <p class="eyebrow">YOUR TRAINING, MADE VISIBLE</p>
+        <h1>Small wins.<br><span>Real progress.</span></h1>
+        <p class="hero-copy">Log your workouts, spot your strength gains, and keep showing up.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+        <div class="art-number">01<span>/DAY</span></div>
+      </div>
+    </section>
+
+    <section class="level-card" aria-label="Your fitness level">
+  <div class="level-top">
+    <div>
+      <p class="eyebrow">YOUR JOURNEY</p>
+      <h2 id="player-rank">Rookie</h2>
+      <p id="player-xp">0 XP earned</p>
+    </div>
+    <div class="level-badge" id="player-level">LVL 1</div>
+  </div>
+
+  <div class="level-track">
+    <div id="level-progress" class="level-fill"></div>
+  </div>
+
+  <p id="level-next">250 XP to Grinder</p>
+</section>
+    <section class="stats-grid" aria-label="Your summary">
+      <article class="stat-card"><span class="stat-label">Workouts logged</span><strong id="workout-count">0</strong><span class="stat-note">All time</span></article>
+      <article class="stat-card"><span class="stat-label">This week</span><strong id="week-count">0</strong><span class="stat-note">Workouts completed</span></article>
+      <article class="stat-card"><span class="stat-label">Exercises tracked</span><strong id="exercise-count">0</strong><span class="stat-note">Unique exercises</span></article>
+    </section>
+
+    <div class="content-grid" id="train-screen">
+      <section class="panel log-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">SESSION LOG</p><h2>Log a workout</h2></div>
+          <span class="pill">Takes ~1 min</span>
+        </div>
+        <form id="workout-form">
+          <label for="workout-date">Date</label>
+          <input id="workout-date" type="date" required>
+          <label for="exercise">Exercise</label>
+          <input id="exercise" type="text" placeholder="e.g. Bench press" maxlength="60" required>
+          <div class="form-row">
+            <div><label for="sets">Sets</label><input id="sets" type="number" min="1" max="30" value="3" required></div>
+            <div><label for="reps">Reps per set</label><input id="reps" type="number" min="1" max="100" value="10" required></div>
+            <div><label for="weight">Weight (kg)</label><input id="weight" type="number" min="0" max="1000" step="0.5" value="20" required></div>
+          </div>
+          <label for="notes">Notes <span class="optional">optional</span></label>
+          <textarea id="notes" rows="2" maxlength="240" placeholder="How did it feel? Any personal best?"></textarea>
+          <button class="button button-primary" type="submit">+ Save workout</button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+    </div>
+
+    <section class="panel history-panel" id="train-history">
+      <div class="section-heading">
+        <div><p class="eyebrow">RECENT ACTIVITY</p><h2>Workout history</h2></div>
+        <button id="export-btn" class="button button-secondary" type="button">Export CSV</button>
+      </div>
+      <div id="history-list" class="history-list">
+        <div class="empty-history">No workouts yet. Your first entry will show up here.</div>
+      </div>
+    </section>
+<section class="panel workout-planner" id="train-planner">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">PLAN YOUR TRAINING</p>
+      <h2>Workout Planner</h2>
+    </div>
+  </div>
+
+  <form id="planner-form">
+    <label for="plan-name">Workout name</label>
+    <input id="plan-name" type="text" placeholder="e.g. Chest & Triceps" required>
+
+    <label for="plan-muscle">Muscle group</label>
+    <select id="plan-muscle" required>
+      <option value="">Choose muscle group</option>
+      <option>Chest</option>
+      <option>Back</option>
+      <option>Shoulders</option>
+      <option>Arms</option>
+      <option>Legs</option>
+      <option>Full Body</option>
+      <option>Core</option>
+    </select>
+
+    <label for="plan-exercises">Exercises</label>
+    <textarea id="plan-exercises" rows="4" placeholder="Bench Press — 3 sets × 10 reps&#10;Incline Dumbbell Press — 3 sets × 12 reps" required></textarea>
+
+    <button class="button" type="submit">Save Workout Plan</button>
+    <p id="planner-message" role="status"></p>
+  </form>
+
+  <div id="planner-list"></div>
+</section>
+</div>
+ 
+<section class="panel progress-panel" id="progress-screen">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">YOUR HISTORY</p>
+      <h2>Strength progress</h2>
+    </div>
+  </div>
+  <label for="progress-exercise">Choose exercise</label>
+  <select id="progress-exercise">
+    <option value="">Log an exercise to begin</option>
+  </select>
+  <div id="chart-wrap" class="chart-wrap">
+    <div class="empty-state">
+      <div class="empty-icon">↗</div>
+      <strong>Your progress starts here</strong>
+      <p>Log the same exercise over time to see your working weight trend.</p>
+    </div>
+  </div>
+  <p class="chart-footnote">Shows the highest weight logged for each date. Compare similar sets and reps for a fair comparison.</p>
+</section>
+<section class="panel diet-panel" id="diet-screen">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">FUEL YOUR PROGRESS</p>
+      <h2>Diet Tracker</h2>
+    </div>
+  </div>
+
+  <div class="diet-stats">
+    <div class="stat-card">
+      <span class="stat-label">Calories</span>
+      <strong id="diet-calories">0</strong>
+      <span class="stat-note">kcal logged</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Protein</span>
+      <strong id="diet-protein">0 g</strong>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Carbs</span>
+      <strong id="diet-carbs">0 g</strong>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Fats</span>
+      <strong id="diet-fats">0 g</strong>
+    </div>
+  </div>
+
+  <form id="diet-form">
+    <label for="meal-name">Meal or food</label>
+    <input id="meal-name" type="text"
+      placeholder="e.g. Eggs and rice" required>
+
+    <div class="form-row">
+      <div>
+        <label for="meal-calories">Calories (kcal)</label>
+        <input id="meal-calories" type="number"
+          min="0" placeholder="350" required>
+      </div>
+      <div>
+        <label for="meal-protein">Protein (g)</label>
+        <input id="meal-protein" type="number"
+          min="0" placeholder="25" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label for="meal-carbs">Carbs (g)</label>
+        <input id="meal-carbs" type="number"
+          min="0" placeholder="40" required>
+      </div>
+      <div>
+        <label for="meal-fats">Fats (g)</label>
+        <input id="meal-fats" type="number"
+          min="0" placeholder="10" required>
+      </div>
+    </div>
+
+    <button class="button" type="submit">Add Meal</button>
+    <p id="diet-message" role="status"></p>
+  </form>
+
+  <h3>Today's meals</h3>
+  <div id="diet-meal-list" class="history-list">
+    <p>No meals logged yet.</p>
+  </div>
+</section>
+
+<section class="panel photo-panel" id="progress-photos">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">YOUR TRANSFORMATION</p>
+      <h2>Progress Photos</h2>
+      <p>Capture your journey. Compare your progress over time.</p>
+    </div>
+  </div>
+
+  <form id="progress-photo-form">
+    <label for="progress-photo">Choose a progress photo</label>
+    <input
+      id="progress-photo"
+      type="file"
+      accept="image/jpeg,image/png,image/webp"
+      required
+    >
+
+    <label for="progress-photo-date">Photo date</label>
+    <input id="progress-photo-date" type="date" required>
+
+    <label for="progress-photo-note">Note (optional)</label>
+    <input
+      id="progress-photo-note"
+      type="text"
+      maxlength="100"
+      placeholder="e.g. Week 1 — starting point"
+    >
+
+    <button class="button" type="submit">Save Photo</button>
+    <p id="progress-photo-message" role="status"></p>
+  </form>
+
+  <div id="progress-photo-gallery" class="photo-gallery">
+    <p>No progress photos yet. Add your first photo!</p>
+  </div>
+</section>
+
+<section class="panel generator-panel">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">BUILT AROUND YOU</p>
+      <h2>Personalized Workout Generator</h2>
+      <p>Create a workout that matches your goals and equipment.</p>
+    </div>
+  </div>
+
+  <form id="generator-form">
+    <label for="generator-goal">Your goal</label>
+    <select id="generator-goal" required>
+      <option value="muscle">Build muscle</option>
+      <option value="strength">Build strength</option>
+      <option value="fat-loss">Fat loss</option>
+      <option value="fitness">General fitness</option>
+    </select>
+
+    <label for="generator-level">Experience level</label>
+    <select id="generator-level" required>
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+
+    <label for="generator-equipment">Available equipment</label>
+    <select id="generator-equipment" required>
+      <option value="gym">Full gym</option>
+      <option value="dumbbells">Dumbbells only</option>
+      <option value="bodyweight">Bodyweight only</option>
+    </select>
+
+    <label for="generator-muscle">Target muscle group</label>
+    <select id="generator-muscle" required>
+      <option value="chest">Chest</option>
+      <option value="back">Back</option>
+      <option value="shoulders">Shoulders</option>
+      <option value="arms">Arms</option>
+      <option value="legs">Legs</option>
+      <option value="full-body">Full body</option>
+    </select>
+
+    <label for="generator-duration">Workout duration</label>
+    <select id="generator-duration" required>
+      <option value="20">20 minutes</option>
+      <option value="30">30 minutes</option>
+      <option value="45" selected>45 minutes</option>
+      <option value="60">60 minutes</option>
+    </select>
+
+    <button class="button" type="submit">Generate My Workout</button>
+  </form>
+
+  <div id="generator-message" role="status"></div>
+
+  <div id="generated-workout" hidden>
+    <h3 id="generated-title">Your workout</h3>
+    <p id="generated-summary"></p>
+    <div id="generated-exercises"></div>
+    <button class="button" id="save-generated-workout" type="button">
+      Save to Workout Planner
+    </button>
+  </div>
+</section>
+
+<section class="panel streak-panel">
+  <p class="eyebrow">STAY CONSISTENT</p>
+  <h2>🔥 Workout Streak</h2>
+
+  <div class="streak-summary">
+    <div class="streak-stat">
+      <strong id="current-streak">0</strong>
+      <span>Day streak</span>
+    </div>
+    <div class="streak-stat">
+      <strong id="weekly-workouts">0/4</strong>
+      <span>This week</span>
+    </div>
+  </div>
+
+  <div id="streak-week-calendar" class="streak-week-calendar"></div>
+  <p id="streak-message" role="status">
+    Complete a workout to start your streak!
+  </p>
+</section>
+
+<section class="panel analytics-panel">
+  <p class="eyebrow">YOUR PERFORMANCE</p>
+  <h2>📊 Workout Analytics</h2>
+  <p>See how consistently you're showing up.</p>
+
+  <div class="analytics-stats">
+    <div class="analytics-stat">
+      <span>This week</span>
+      <strong id="analytics-week">0</strong>
+      <small>workouts completed</small>
+    </div>
+    <div class="analytics-stat">
+      <span>All time</span>
+      <strong id="analytics-total">0</strong>
+      <small>workouts completed</small>
+    </div>
+  </div>
+
+  <h3>Last 7 days</h3>
+  <div id="analytics-chart" class="analytics-chart"></div>
+  <p id="analytics-message" role="status">
+    Complete a workout to start building your stats.
+  </p>
+</section>
+
+<section class="panel active-workout-panel">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">TRAIN WITH PURPOSE</p>
+      <h2>Start Workout</h2>
+      <p>Follow your plan and track each exercise as you go.</p>
+    </div>
+  </div>
+
+  <label for="active-plan-select">Choose a saved workout</label>
+  <select id="active-plan-select">
+    <option value="">Select a workout plan</option>
+  </select>
+
+  <button class="button" id="start-workout-btn" type="button">
+    Start Session
+  </button>
+
+  <div id="active-workout-session" hidden>
+    <div class="workout-session-summary">
+      <h3 id="active-workout-title">Your workout</h3>
+      <p id="active-workout-progress">0 of 0 exercises completed</p>
+      <div class="level-track">
+        <div id="active-workout-progress-bar" class="level-fill"></div>
+      </div>
+    </div>
+
+    <div id="active-workout-exercises"></div>
+
+<div class="rest-timer">
+  <h3>⏱️ Rest Timer</h3>
+  <div id="rest-timer-display">01:30</div>
+  <div class="rest-timer-controls">
+    <button type="button" id="rest-timer-start">Start</button>
+    <button type="button" id="rest-timer-pause">Pause</button>
+    <button type="button" id="rest-timer-reset">Reset</button>
+  </div>
+  <p id="rest-timer-message" role="status">Ready for your next set?</p>
+</div>
+
+    <button class="button" id="finish-workout-btn" type="button">
+      Finish Workout
+    </button>
+    <p id="active-workout-message" role="status"></p>
+
+<div id="workout-completion-card" hidden>
+  <p class="eyebrow">SESSION COMPLETE</p>
+  <h2>Workout crushed! 🎉</h2>
+  <p id="completion-xp">+50 XP earned</p>
+  <div class="completion-stats">
+    <div class="completion-stat">
+      <strong id="completion-exercises">0/0</strong>
+      <span>Exercises</span>
+    </div>
+    <div class="completion-stat">
+      <strong id="completion-duration">0 min</strong>
+      <span>Duration</span>
+    </div>
+  </div>
+<button type="button" id="new-workout-btn">
+  New Workout ↻
+</button>
+
+</div>
+
+  </div>
+</section>
+
+<section class="panel progress-dashboard">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">YOUR TRANSFORMATION</p>
+      <h2>Progress Dashboard</h2>
+    </div>
+  </div>
+
+  <form id="body-progress-form">
+    <label for="body-weight">Body weight (kg)</label>
+    <input id="body-weight" type="number" min="1" max="500"
+      step="0.1" placeholder="e.g. 60" required>
+
+    <div class="form-row">
+      <div>
+        <label for="body-chest">Chest (cm)</label>
+        <input id="body-chest" type="number" min="1"
+          max="300" step="0.1" placeholder="Optional">
+      </div>
+      <div>
+        <label for="body-waist">Waist (cm)</label>
+        <input id="body-waist" type="number" min="1"
+          max="300" step="0.1" placeholder="Optional">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label for="body-arms">Arms (cm)</label>
+        <input id="body-arms" type="number" min="1"
+          max="150" step="0.1" placeholder="Optional">
+      </div>
+      <div>
+        <label for="body-date">Date</label>
+        <input id="body-date" type="date" required>
+      </div>
+    </div>
+
+    <button class="button" type="submit">Save Progress</button>
+    <p id="body-progress-message" role="status"></p>
+  </form>
+
+  <h3>Measurement history</h3>
+  <div id="body-progress-history" class="history-list">
+    <p>No measurements recorded yet.</p>
+  </div>
+</section>
+
+<section class="panel achievements-panel" aria-labelledby="achievements-heading">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">MILESTONES</p>
+      <h2 id="achievements-heading">Your achievements</h2>
+    </div>
+  </div>
+
+  <div class="achievements-grid">
+    <article class="achievement-card" id="badge-first-workout">
+      <span class="achievement-icon">🏁</span>
+      <h3>First Rep</h3>
+      <p>Log your first workout.</p>
+      <span class="achievement-status">Locked</span>
+    </article>
+
+    <article class="achievement-card" id="badge-ten-workouts">
+      <span class="achievement-icon">💪</span>
+      <h3>Consistent</h3>
+      <p>Log 10 workouts.</p>
+      <span class="achievement-status">Locked</span>
+    </article>
+
+    <article class="achievement-card" id="badge-five-exercises">
+      <span class="achievement-icon">⚡</span>
+      <h3>Exercise Explorer</h3>
+      <p>Track 5 different exercises.</p>
+      <span class="achievement-status">Locked</span>
+    </article>
+  </div>
+</section>
+
+<section class="panel showdown-panel" aria-labelledby="showdown-heading">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">WEEKLY CHALLENGE</p>
+      <h2 id="showdown-heading">Sunday Showdown</h2>
+      <p>Challenge yourself. Build consistency. Earn XP.</p>
+    </div>
+    <span class="pill">+50 XP</span>
+  </div>
+
+  <div class="showdown-card">
+    <span class="showdown-icon">⚡</span>
+    <p class="eyebrow">THIS WEEK'S CHALLENGE</p>
+    <h3>Bodyweight Blitz</h3>
+    <p>Complete these at your own pace, using good form.</p>
+
+    <div class="challenge-task">
+      <span>Push-ups</span>
+      <strong>20 reps</strong>
+    </div>
+    <div class="challenge-task">
+      <span>Bodyweight squats</span>
+      <strong>30 reps</strong>
+    </div>
+    <div class="challenge-task">
+      <span>Plank</span>
+      <strong>60 seconds total</strong>
+    </div>
+
+    <p class="challenge-note">
+      Need an easier version? Do knee push-ups, supported squats,
+      or shorter plank holds. Rest whenever you need.
+    </p>
+
+    <label class="challenge-check">
+      <input type="checkbox" id="showdown-complete">
+      <span>I've completed this challenge</span>
+    </label>
+
+    <button class="btn-primary" id="showdown-claim" type="button">
+      Claim 50 XP
+    </button>
+
+    <p id="showdown-message" role="status" aria-live="polite">
+      Complete the challenge to earn your reward.
+    </p>
+  </div>
+</section>
+    <section class="founder-card" aria-labelledby="founder-heading">
+      <div class="founder-photo-wrap">
+        <img class="founder-photo" src="assets/founder.jpeg" alt="ProgressLab founder Shreeshanth" loading="lazy">
+      </div>
+      <div class="founder-details">
+        <p class="eyebrow">FOUNDER &amp; CREATOR</p>
+        <h2 id="founder-heading">Shreeshanth</h2>
+        <p class="founder-tagline">Building ProgressLab — Train. Track. Improve.</p>
+        <a class="founder-email" href="mailto:gantasaishreeshanth07@gmail.com"><span aria-hidden="true">✉</span> ganatasaishreeshanth07@gmail.com</a>
+      </div>
+      <div class="founder-mark" aria-hidden="true">P</div>
+    </section>
+
+    <section class="privacy-note">
+      <span class="privacy-icon">⌂</span>
+      <p><strong>Your data stays in this browser for now.</strong> This prototype has no account or cloud sync. Use Export CSV to keep a backup. Clearing browser data may erase your entries.</p>
+    </section>
+    <footer>ProgressLab prototype · Built to help you measure consistency, not chase perfection.</footer>
+
+<nav class="bottom-nav" id="bottom-nav" aria-label="Main navigation">
+  <button class="nav-item active" type="button" data-tab="home">
+    <span>⌂</span>
+    <small>Home</small>
+  </button>
+  <button class="nav-item" type="button" data-tab="train">
+    <span>⚡</span>
+    <small>Train</small>
+  </button>
+  <button class="nav-item" type="button" data-tab="diet">
+    <span>◉</span>
+    <small>Diet</small>
+  </button>
+  <button class="nav-item" type="button" data-tab="progress">
+    <span>↗</span>
+    <small>Progress</small>
+  </button>
+  <button class="nav-item" type="button" data-tab="profile">
+    <span>☻</span>
+    <small>Profile</small>
+  </button>
+</nav>
+<section id="profile-screen" class="panel" hidden>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">YOUR ACCOUNT</p>
+      <h2>Profile</h2>
+      <p>Manage your ProgressLab account.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Account</h3>
+    <p id="profile-email">You're signed in.</p>
+    <button id="profile-logout" class="button" type="button">
+      Log out
+    </button>
+  </div>
+</section>
+  </main>
+  <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+</body>
+</html>
+%
